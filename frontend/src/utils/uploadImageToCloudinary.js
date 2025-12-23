@@ -1,5 +1,5 @@
-const CLOUDINARY_CLOUD_NAME = "dts5xlwln";
-const CLOUDINARY_UPLOAD_PRESET = "rekruteIT";
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
 export const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
