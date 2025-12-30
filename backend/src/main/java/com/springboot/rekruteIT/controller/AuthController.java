@@ -105,13 +105,13 @@ public class AuthController {
         String code = emailVerificationService.sendVerificationCode(email);
 
 //        System.out.println(code);
-        codeStore.storeCode(email,password, code);
+        // codeStore.storeCode(email,password, code);
 //        codeStore.getCode(email);
-        // get token form tokenProvider
-//        String token = tokenProvider.generateToken(authentication);
+//        get token form tokenProvider
+        String token = tokenProvider.generateToken(authentication);
 
-        return new ResponseEntity<>("Verification code sent to email", HttpStatus.OK);
-//        return ResponseEntity.ok(new JWTAuthResponse(token));
+        //return new ResponseEntity<>("Verification code sent to email", HttpStatus.OK);
+        return ResponseEntity.ok(new JWTAuthResponse(token));
     }
 
 
@@ -136,7 +136,15 @@ public class AuthController {
         user.setPassword(passwordEncoder
                 .encode(signUpDto.getPassword()));
 
-        Role roles = roleRepository.findByName(signUpDto.getRole()).get();
+        java.util.Optional<Role> roleOpt = roleRepository.findByName(signUpDto.getRole());
+        Role roles;
+        if(roleOpt.isPresent()){
+            roles = roleOpt.get();
+        } else {
+            roles = new Role();
+            roles.setName(signUpDto.getRole());
+            roles = roleRepository.save(roles);
+        }
         user.setRoles(Collections.singleton(roles));
 
         userRepository.save(user);
