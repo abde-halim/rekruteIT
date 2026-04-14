@@ -15,20 +15,10 @@ output "mysql_fqdn" {
 
 output "database_id" {
   description = "Database ID"
-  # value       = azurerm_mysql_flexible_database.main.id
-  value = {
-    for key, db in azurerm_mysql_flexible_database.main :
-    key => db.id
-  }
-
+  value       = azurerm_mysql_flexible_database.main.id
 }
 
 output "database_name" {
   description = "Database name"
-  # value       = azurerm_mysql_flexible_database.main.name 
-  value = {
-    for key, db in azurerm_mysql_flexible_database.main :
-    key => db.name
-  }
-
+  value       = azurerm_mysql_flexible_database.main.name
 }

@@ -1,0 +1,47 @@
+# Server Configuration
+server.port=
+#server.servlet.context-path=
+
+# Database Configuration
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.driver-class-name=
+
+# JPA/Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=
+spring.jpa.show-sql=
+spring.jpa.properties.hibernate.dialect=
+spring.jpa.properties.hibernate.format_sql=
+spring.jpa.properties.hibernate.use_sql_comments=
+
+# JWT Configuration
+app.jwt-secret=
+app.jwt-expiration-milliseconds=
+
+# Mail Configuration (Gmail or other SMTP)
+spring.mail.host=
+spring.mail.port=
+spring.mail.username=
+spring.mail.password=
+spring.mail.properties.mail.smtp.auth=
+spring.mail.properties.mail.smtp.starttls.enable=
+spring.mail.properties.mail.smtp.starttls.required=
+spring.mail.properties.mail.smtp.connectiontimeout=
+spring.mail.properties.mail.smtp.timeout=
+spring.mail.properties.mail.smtp.writetimeout=
+
+# Twilio Configuration (for SMS/Phone verification)
+twilio.accountSid=
+twilio.authToken=
+twilio.phoneNumber=
+
+# Application Configuration
+app.name=
+app.version=
+app.model.api=
+
+# Logging Configuration
+logging.level.root=
+logging.level.com.springboot.rekruteIT=
+logging.pattern.console=

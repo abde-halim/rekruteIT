@@ -72,11 +72,6 @@ variable "database_name" {
   type        = string
 }
 
-variable "databases" {
-  type    = list(string)
-  default = ["rekruitedb", "db2", "db3"]
-}
-
 variable "charset" {
   description = "Database charset"
   type        = string

@@ -20,7 +20,12 @@ resource "azurerm_mysql_flexible_server" "main" {
 }
 
 resource "azurerm_mysql_flexible_database" "main" {
-  name                = var.database_name
+
+  # name                = var.database_name  - from one db to multiple dbs using for each 
+
+  for_each = toset(var.databases)
+
+  name                = each.value
   resource_group_name = var.resource_group_name
   server_name         = azurerm_mysql_flexible_server.main.name
   charset             = var.charset
